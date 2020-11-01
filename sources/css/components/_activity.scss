@@ -1,0 +1,58 @@
+.list {
+    $self: &;
+    &__item {
+        + #{$self}__item {
+            margin-top: rem(16px);
+
+            @include mq(tablet) {
+                margin-top: rem(24px);
+            }
+        }
+    }
+}
+
+.activity {
+    &__header {
+        display: flex;
+        margin-bottom: rem(16px);
+    }
+    &__icon {
+        display: block;
+        width: rem(40px);
+        height: rem(40px);
+        background: $breaker-day;
+        color: $white;
+        border-radius: 50%;
+        margin-right: rem(8px);
+        padding: rem(4px);
+    }
+    &__title {
+        font-family: $font-secondary;
+        font-weight: 700;
+        font-size: rem(20px);
+    }
+    &__time {
+        color: $william;
+    }
+    &__stats {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__item {
+        width: 50%;
+        padding: rem(16px) 0;
+        text-align: center;
+        border-bottom: 1px solid $gray;
+    }
+    &__term {
+        font-size: rem(11px);
+        color: $william;
+
+        @include mq(tablet) {
+            font-size: rem(12px);
+        }
+    }
+    &__desc {
+        font-size: rem(18px);
+    }
+}

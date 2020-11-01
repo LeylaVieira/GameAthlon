@@ -1,0 +1,30 @@
+.form {
+    $self: &;
+    &__label {
+        display: block;
+        font-size: rem(12px);
+        margin-bottom: rem(4px);
+        text-align: left;
+    }
+    &__control {
+        border: 1px solid $gray;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: rem(16px);
+        padding: rem(10px);
+        width: 100%;
+        transition: all $fast $ease-in;
+
+        &:focus {
+            border-color: $breaker-day;
+        }
+    }
+    &__group {
+        width: 100%;
+        max-width: rem(224px);
+        margin: auto;
+        + #{$self}__group {
+            margin-top: rem(16px);
+        }
+    }
+}

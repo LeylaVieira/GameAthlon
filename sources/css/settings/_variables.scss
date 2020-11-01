@@ -1,0 +1,60 @@
+// Namespace
+// -----------
+$namespace: 'GameAthlon';
+
+// Fonts
+$font-base: 'OpenSans', sans-serif;
+$font-secondary: 'Poppins', sans-serif;
+
+//-----------
+$ultrafast: 120ms;
+$fast: 250ms;
+$medium: 350ms;
+$slow: 450ms;
+
+// http://cubic-bezier.com/
+// ease-in fast->slow
+// ease-out slow->fast
+$ease: ease;
+$ease-in: cubic-bezier(0, 0, 0.24, 0.9);
+$ease-out: cubic-bezier(0.59, 0, 0.68, 0.69);
+$ease-in-bounce: cubic-bezier(0.03, 0.27, 0.49, 1.22);
+$ease-out-bounce: cubic-bezier(0.59, 0, 0.59, 1.48);
+$ease-linear: cubic-bezier(0.03, 0.27, 0.44, 0.93);
+$ease-extreme: cubic-bezier(0.68, -0.55, 0.26, 1.55);
+
+// Mediaqueries
+//-----------
+$mobile: 20em !default; // 320px
+$mobile-landscape: 30em !default; // 480px
+$tablet-small: 37.5em !default; // 600px
+$tablet-medium: 40em !default; // 640px
+$tablet: 48em !default; // 768px
+$tablet-weird: 52.5em !default; // 840px
+$tablet-large: 64em !default; // 1024px
+$desktop: 60em !default; // 960px
+$desktop-extralarge: 85em !default; // 1360px
+$desktop-max-width: 93.75em !default;
+
+// Grid
+//-----------
+$max-width: $desktop-max-width;
+
+// Utilities
+//-----------
+$gutter: 1em;
+
+$radius: 0.3125em;
+
+// Z-index
+//-----------
+$z-layers: (
+    bottomless-pit: -9999,
+    default: 1,
+    slider: 100,
+    dropdown: 200,
+    overlay: 300,
+    modal: 400,
+    menu: 500,
+    spinner: 600
+);

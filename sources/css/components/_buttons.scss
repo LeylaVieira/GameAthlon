@@ -1,0 +1,33 @@
+.btn {
+    width: 100%;
+    max-width: rem(224px);
+    font-size: rem(16px);
+    font-family: $font-secondary;
+    font-weight: 600;
+    border-radius: 4px;
+    padding: rem(12px);
+    border: none;
+    margin-top: rem(24px);
+    cursor: pointer;
+
+    &--primary {
+        background: $black;
+        color: $white;
+
+        @include mq(desktop) {
+            transition: all $fast $ease-in;
+            &:hover,
+            &:focus {
+                background: $william;
+            }
+        }
+    }
+    &--icon {
+        width: rem(24px);
+        height: rem(24px);
+        max-width: initial;
+        margin: 0;
+        padding: 0;
+        background: none;
+    }
+}

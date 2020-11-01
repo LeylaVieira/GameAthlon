@@ -1,0 +1,63 @@
+.perfil {
+    text-align: center;
+    padding: rem(32px) 0;
+
+    @include mq(tablet) {
+        padding: rem(72px) 0 rem(64px);
+    }
+
+    @include mq(desktop) {
+        padding: 0;
+    }
+
+    &__image  {
+        width: rem(48px);
+        height: rem(48px);
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__progress {
+        width: rem(72px);
+        height: rem(72px);
+        position: relative;
+        margin: auto;
+    }
+    &__level {
+        display: block;
+        font-family: $font-secondary;
+        font-weight: 600;
+        font-size: rem(10px);
+        text-transform: uppercase;
+        margin-top: rem(8px);
+
+        @include mq(tablet) {
+            font-size: rem(12px);
+        }
+    }
+    &__name {
+        font-family: $font-secondary;
+        line-height: 1;
+        font-weight: 700;
+        font-size: rem(18px);
+        margin-top: rem(4px);
+
+        @include mq(tablet) {
+            font-size: rem(20px);
+        }
+    }
+    &__coins {
+        font-size: rem(14px);
+        font-family: $font-secondary;
+        font-weight: 600;
+        margin-top: rem(4px);
+        color: $breaker-day;
+
+        @include mq(tablet) {
+            font-size: rem(14px);
+        }
+    }
+}

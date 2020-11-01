@@ -1,0 +1,70 @@
+.card {
+    border: 1px solid $gray;
+    border-radius: 8px;
+    display: block;
+    background: $white;
+
+    @include mq(desktop) {
+        transition: all $slow $ease-in;
+        &:hover,
+        &:focus {
+            box-shadow: 6px 6px 16px 0px rgba($gray, .8);
+        }
+    }
+
+    &__icon {
+        flex-shrink: 0;
+        width: rem(32px);
+        height: rem(32px);
+        background: $breaker-day;
+        color: $white;
+        border-radius: 50%;
+        padding: rem(2px);
+        margin-right: rem(8px);
+    }
+    &__heading {
+        display: flex;
+        padding: rem(16px);
+        border-bottom: 1px solid $gray;
+
+        &-text {
+            flex-grow: 1;
+            overflow: hidden;
+        }
+    }
+    &__title {
+        font-family: $font-secondary;
+        font-weight: 600;
+        font-size: rem(14px);
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    &__time {
+        font-size: rem(12px);
+        color: $william;
+    }
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        padding: rem(16px);
+    }
+    &__item {
+        display: flex;
+        align-items: center;
+
+        &-icon {
+            display: block;
+            width: rem(24px);
+            height: rem(24px);
+            border-radius: 50%;
+            // background: $gray;
+        }
+    }
+    &__term {
+        margin-right: rem(8px);
+    }
+    &__desc {
+        font-size: rem(14px);
+    }
+}

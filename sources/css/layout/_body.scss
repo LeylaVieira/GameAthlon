@@ -1,0 +1,11 @@
+body {
+    &.is-visible-modal {
+        overflow: hidden;
+
+        .activities {
+            &:after { // overlay
+                opacity: 1;
+            }
+        }
+    }
+}

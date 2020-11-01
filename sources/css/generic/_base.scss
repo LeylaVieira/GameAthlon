@@ -1,0 +1,40 @@
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// img {
+//   display: block;
+//   width: 100%;
+//   height: auto;
+// }
+
+// .main {
+//   padding-bottom: rem(56px);
+// }
+
+.container {
+  padding: 0 rem(16px);
+  margin: 0 auto;
+
+  @include mq(tablet) {
+    max-width: rem(604px);
+  }
+
+  @include mq(desktop) {
+    max-width: rem(1079px);
+  }
+
+  &--center {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include mq(desktop) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}

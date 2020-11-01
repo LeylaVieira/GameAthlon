@@ -1,0 +1,72 @@
+.modal {
+    background: $white;
+    position: fixed;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    padding: rem(16px);
+    opacity: 0;
+    // transform: scale(.8);
+    pointer-events: none;
+    transition: all $fast $ease-in;
+
+    &.is-visible {
+        opacity: 1;
+        // transform: scale(1);
+        pointer-events: all;
+    }
+
+    @include mq(tablet) {
+        max-width: rem(604px);
+        height: calc(100vh - (72px * 2));
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 8px;
+        box-shadow: 6px 6px 16px 0px rgba($gray, .8);
+    }
+    @include mq(desktop) {
+        right: calc(100vw / 2);
+        width: calc((100vw / 2) - 16px);
+        top: rem(72px);
+        transform: translateY(0);
+    }
+    @include mq(desktop_wider) {
+        width: calc((1079px / 2) - 16px);
+        top: rem(80px);
+        height: calc(100vh - (80px * 2));
+    }
+
+    &__body {
+        height: calc(100vh - (56px + 32px));
+        overflow-y: scroll;
+
+        @include mq(tablet) {
+            height: calc(100% - 56px);
+        }
+        @include mq(desktop_wider) {
+            &::-webkit-scrollbar {
+                width: 0;
+                background: transparent; /* make scrollbar transparent */
+            }
+        }
+    }
+    &__header {
+        text-align: right;
+        padding-bottom: rem(16px);
+    }
+    &__btn {
+        color: $black;
+
+        @include mq(desktop) {
+            transition: all $fast $ease-in;
+            &:hover,
+            &:focus {
+                transform: rotate(90deg);
+            }
+        }
+    }
+}

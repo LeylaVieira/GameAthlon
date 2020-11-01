@@ -1,0 +1,232 @@
+// Dev
+// ---------
+.dev {
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  @include style(1rem, palette(white, dark));
+  text-align: center;
+  background: $dev;
+  border-bottom: 3px solid darken($dev, 10%);
+  border-radius: 0.25rem;
+
+  &:hover {
+    background: lighten($dev, 5%);
+  }
+}
+
+// CSS HACKS
+// -----------------
+// http://stackoverflow.com/questions/20541306/how-to-write-a-css-hack-for-ie-11
+//
+// Para IE
+// @media all and (-ms-high-contrast:none) {
+//   * { color: green } /* IE10 */
+//   *::-ms-backdrop, * { color: red } /* IE11 */
+// }
+
+/* margenes*/
+.mt-xs {
+  margin-top: 0.9375em;
+}
+
+.mt-md {
+  margin-top: 1.875rem;
+}
+
+.mt-lg {
+  margin-top: 2.8125rem;
+}
+
+.mt-xl {
+  margin-top: 3.125rem;
+}
+
+.mb-xs {
+  margin-bottom: 0.9375em;
+}
+
+.mb-md {
+  margin-bottom: 1.875rem;
+}
+
+.mb-lg {
+  margin-bottom: 2.8125rem;
+}
+
+.mb-xl {
+  margin-bottom: 3.125rem;
+}
+
+/* display properties */
+.hidden-xs-up {
+  display: none !important;
+}
+
+@media only screen and (max-width: 575px) {
+  .hidden-xs-down {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .hidden-sm-up {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .hidden-sm-down {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .hidden-md-up {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .hidden-md-down {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .hidden-lg-up {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .hidden-lg-down {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .hidden-xl-up {
+    display: none !important;
+  }
+}
+
+.hidden-xl-down {
+  display: none !important;
+}
+
+.cb {
+  clear: both;
+}
+
+.cp {
+  cursor: pointer;
+}
+
+.noevents {
+  pointer-events: none;
+}
+
+.disabled {
+  transition: none;
+  color: palette(grey);
+  cursor: default;
+  pointer-events: none;
+}
+
+.oh {
+  overflow: hidden;
+}
+
+.ohx {
+  overflow-x: hidden;
+}
+
+.ohy {
+  overflow-y: hidden;
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden;
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.no-before:before,
+.no-after:after,
+.no-pseudo-element:before,
+.no-pseudo-element:after {
+  display: none;
+}
+
+[hidden] {
+  display: none;
+}
+
+.relative {
+  position: relative;
+}
+
+/*Padding*/
+.pt {
+  padding-top: 25px;
+}
+
+.pb {
+  padding-top: 25px;
+}
+
+.tac {
+  text-align: center !important;
+}
+
+
+// Display
+// ------------------------------------------------------
+%sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+
+    &-focusable:active,
+    &-focusable:focus {
+        position:static;
+        width:auto;
+        height:auto;
+        margin:0;
+        overflow:visible;
+        clip:auto;
+    }
+}
+
+.sr-only {
+    @extend %sr-only;
+}

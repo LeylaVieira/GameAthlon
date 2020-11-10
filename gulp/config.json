@@ -5,6 +5,7 @@
     "../sources/js/modules/devices.js",
     "../sources/js/modules/modal.js",
     "../sources/js/modules/progress.js",
+    "../sources/js/modules/data.js",
     "../sources/js/modules/main.js"
   ]
 }

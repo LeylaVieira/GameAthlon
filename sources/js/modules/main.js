@@ -8,4 +8,5 @@ const HTML = document.querySelector('html');
     if(document.getElementsByTagName('body')[0].classList.contains('Home')) {
         f_crearProgress(document.querySelector('.progress__svg'));
     }
+    f_getActivities();
 })();

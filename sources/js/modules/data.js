@@ -1,5 +1,3 @@
-// const key = 'Bearer 4854e988d0f535b2bbc8b616674a01d822e9f23c';
-
 function f_obtenerDia(num){
     switch(num) {
         case 0:

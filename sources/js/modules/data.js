@@ -71,7 +71,6 @@ function f_pintarActividades(data) {
 
     // =================================================================
     // Debo hacer las peticiones para obtener los datos de cada actividad y pintar las modales
-    // let activityAuthorization = 'Bearer da73d0c80f187bb54ef60b6370de59d69d680484';
 
     for (const id of actividadesId) {
         let activityUrl = `https://www.strava.com/api/v3/activities/${id}`;
@@ -136,46 +135,3 @@ function f_getData(key, url, callback) {
         console.error(error);
     })
 }
-
-// function f_getData(dataHeader, url, callback) {
-//     let headers = new Headers(dataHeader);
-
-//     const request = new Request(url, {
-//         method: 'GET',
-//         headers
-//     })
-
-//     fetch(request)
-//     .then(async response => {
-//         const res = await response.json();
-//         // console.log(res);
-//         callback(res);
-//     })
-//     .catch(error => {
-//         console.error(error);
-//     })
-// }
-
-// function f_getActivities() {
-//     console.info("KEY-->", key);
-//     const headers = new Headers({
-//         'Content-Type': 'application/json',
-//         'Accept': 'application/json',
-//         'Authorization': key
-//     })
-
-//     const request = new Request('https://www.strava.com/api/v3/athlete/activities', {
-//         method: 'GET',
-//         headers,
-//     })
-
-//     fetch(request)
-//     .then(async response => {
-//         const res = await response.json()
-//         console.log(res);
-//     })
-//     .catch(error => {
-//         console.error(error);
-//     })
-// }
-

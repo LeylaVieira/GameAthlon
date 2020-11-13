@@ -6,8 +6,10 @@
     "../sources/js/modules/utilsClass.js",
     "../sources/js/modules/modalClass.js",
     "../sources/js/modules/devices.js",
+    "../sources/js/modules/helpers.js",
     "../sources/js/modules/progress.js",
     "../sources/js/modules/data.js",
+    "../sources/js/modules/paint.js",
     "../sources/js/modules/main.js"
   ]
 }

@@ -5,6 +5,7 @@ let lastActiveFocusElement;
 
 (function() {
     f_detectDevices();
+    f_crearHelpers();
 
     // ==================
     // PERFIL

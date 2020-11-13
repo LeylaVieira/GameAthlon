@@ -17,99 +17,18 @@ function f_obtenerDia(num){
     }
 }
 
-function f_pintarPerfil(data) {
+function f_convertirTiempo(segundosActividad) {
+    let segundos = (Math.round(segundosActividad % 0x3C)).toString();
+    let horas    = (Math.floor(segundosActividad / 0xE10)).toString();
+    let minutos  = (Math.floor(segundosActividad / 0x3C) % 0x3C).toString();
 
-    const templateScriptPerfil = document.getElementById('plantilla-perfil').innerHTML;
-    const theTemplate = Handlebars.compile(templateScriptPerfil);
-    const theCompiledHtml = theTemplate(data);
-
-    document.getElementById('perfil').innerHTML = theCompiledHtml;
-
-    f_crearProgress(document.querySelector('.progress__svg')); // Debo actualizar el progress bar, hay que calcular el nivel y los sport coins
-}
-
-function f_pintarActividades(data) {
-
-    console.info('MI DATA ACTIVIDADES ES --> ' , data);
-    // Guardo los ids de las actividades
-    let actividadesId = data.map(({ id }) => id);
-    console.info("IDs actividades --> ", actividadesId);
-
-    Handlebars.registerHelper('modalId', function() {
-        return `#modal${this.id}`;
-    });
-
-    Handlebars.registerHelper('distancia', function() {
-        return `${(this.distance / 1000).toPrecision(3)} km`;
-    });
-
-    Handlebars.registerHelper('fecha', function() {
-        let fecha = new Date(this.start_date_local);
-        return `${f_obtenerDia(fecha.getDay())} ${fecha.toLocaleDateString()}`
-    });
-
-    Handlebars.registerHelper('icono', function () {
-        switch (this.type) {
-            case 'Ride':
-                return 'icon-cycling';
-            case 'Walk':
-                return 'icon-running';
-            case 'Swimm':
-                return 'icon-swimming';
-            default:
-                return 'icon-sports';
-        }
-    });
-
-    const templateScript = document.getElementById('plantilla-actividades').innerHTML;
-    const theTemplate = Handlebars.compile(templateScript);
-    const theCompiledHtml = theTemplate(data);
-
-    document.getElementById('list').innerHTML = theCompiledHtml;
-
-    // =================================================================
-    // Debo hacer las peticiones para obtener los datos de cada actividad y pintar las modales
-
-    for (const id of actividadesId) {
-        let activityUrl = `https://www.strava.com/api/v3/activities/${id}`;
-        console.info('La URL que llamo --> ', activityUrl);
-        f_getData(keys.actividades, activityUrl, f_pintarModal);
+    if(minutos < 10) {
+        minutos = `0${minutos}`;
     }
 
+    return `${horas}:${minutos}:${segundos}`;
 }
 
-function f_pintarModal(data) {
-    Handlebars.registerHelper('modalActivityId', function() {
-        return `modal${this.id}`;
-    });
-
-    Handlebars.registerHelper('foto', function() {
-        if(this.photos.count > 0) {
-            return this.photos.primary.urls[600];
-        } else {
-            return '../img/activity-photo.jpg';
-        }
-    });
-
-    const templateScriptModal = document.getElementById('plantilla-modal').innerHTML;
-    const theTemplateModal = Handlebars.compile(templateScriptModal);
-    const theCompiledHtml = theTemplateModal(data);
-
-    document.querySelector('body').innerHTML += theCompiledHtml; // Pinto la modal en el body
-
-    // Creo la modal y la inicializo
-    let modal = new Modal(document.querySelector(`[id='modal${data.id}']`));
-    modal.init();
-
-    MODALS.push(modal);
-
-    // let modal = document.querySelector(`[id='modal${data.id}']`);
-    // MODALS.push(new Modal(modal));
-
-    // MODALS.forEach(modal => {
-	// 	modal.init();
-	// });
-}
 
 function f_getData(key, url, callback) {
 

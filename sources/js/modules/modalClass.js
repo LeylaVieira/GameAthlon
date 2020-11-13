@@ -4,6 +4,7 @@ let currentModal = null;
 
 class Modal {
     constructor(element) {
+		console.log(element);
         this.element = element;
 		this.id = this.element.id;
 		this.close = this.element.querySelector('.modal__btn');

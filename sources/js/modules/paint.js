@@ -11,6 +11,8 @@ function f_pintarPerfil(data) {
 
 function f_pintarActividades(data) {
 
+    actividades = data; // guardo las actividades como global para usarlas en cálculo
+
     // console.info('MI DATA ACTIVIDADES ES --> ' , data);
     // Guardo los ids de las actividades
     let actividadesId = data.map(({ id }) => id);

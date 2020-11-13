@@ -40,14 +40,14 @@
         <div class="perfil__progress">
             <img class="perfil__image" src="{{ profile }}" />
             <div class="progress">
-                <svg class="progress__svg" width="72" height="72" data-percent="60">
+                <svg class="progress__svg" width="72" height="72" data-percent="{{ porcentaje }}">
                     <circle class="progress__circle" stroke-linecap="round" stroke="#6BA8A2" stroke-width="5" fill="transparent" r="33" cx="36" cy="36"/>
                 </svg>
             </div>
         </div>
-        <span class="perfil__level">LVL 1</span>
+        <span class="perfil__level">{{ nivel }}</span>
         <h1 class="perfil__name">{{ firstname }} {{ lastname }}</h1>
-        <p class="perfil__coins">3000 sport coins</p>
+        <p class="perfil__coins">{{ coins }}</p>
     </script>
 
     <!--Template para listado de actividades-->

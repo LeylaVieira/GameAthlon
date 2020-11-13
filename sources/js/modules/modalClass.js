@@ -8,6 +8,7 @@ class Modal {
         this.element = element;
 		this.id = this.element.id;
 		this.close = this.element.querySelector('.modal__btn');
+		console.log(document.querySelector(`[href='#${this.element.id}']`));
 		this.trigger = document.querySelector(`[href='#${this.element.id}']`);
     }
 

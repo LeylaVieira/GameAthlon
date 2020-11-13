@@ -46,4 +46,19 @@ function f_crearHelpers() {
     Handlebars.registerHelper('tiempo', function() {
         return f_convertirTiempo(this.moving_time);
     });
+
+    Handlebars.registerHelper('coins', function() {
+        let coins = 50; // Realizar la función para el cálculo
+        return `${coins} sport coins`;
+    });
+
+    Handlebars.registerHelper('nivel', function() {
+        let nivel = 1; // Realizar la función para el cálculo
+        return `LVL ${nivel}`;
+    });
+
+    Handlebars.registerHelper('porcentaje', function() {
+        let porcentaje = 50; // Realizar la función para el cálculo
+        return porcentaje;
+    });
 }

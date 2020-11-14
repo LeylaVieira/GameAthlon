@@ -1,20 +1,6 @@
 function f_obtenerDia(num){
-    switch(num) {
-        case 0:
-            return 'Domingo';
-        case 1:
-            return 'Lunes';
-        case 2:
-            return 'Martes';
-        case 3:
-            return 'Miércoles';
-        case 4:
-            return 'Jueves';
-        case 5:
-            return 'Viernes';
-        default:
-            return 'Sábado';
-    }
+    const dias = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+    return dias[num];
 }
 
 function f_convertirTiempo(segundosActividad) {

@@ -1,11 +1,12 @@
+const modalList = new ModalList();
+
 function f_pintarPerfil(data) {
-
-    const templateScriptPerfil = document.getElementById('plantilla-perfil').innerHTML;
-    const theTemplate = Handlebars.compile(templateScriptPerfil);
-    const theCompiledHtml = theTemplate(data);
-
-    document.getElementById('perfil').innerHTML = theCompiledHtml;
-
+    const wrapper = document.createElement('div')
+    wrapper.innerHTML = createProfile(data);
+    const profile = document.querySelector('#perfil')
+    while(wrapper.childNodes.length > 0) {
+        profile.appendChild(wrapper.childNodes[0])
+    }
     f_crearProgress(document.querySelector('.progress__svg')); // Debo actualizar el progress bar, hay que calcular el nivel y los sport coins
 }
 
@@ -18,11 +19,13 @@ function f_pintarActividades(data) {
     let actividadesId = data.map(({ id }) => id);
     // console.info("IDs actividades --> ", actividadesId);
 
-    const templateScript = document.getElementById('plantilla-actividades').innerHTML;
-    const theTemplate = Handlebars.compile(templateScript);
-    const theCompiledHtml = theTemplate(data);
-
-    document.getElementById('list').innerHTML = theCompiledHtml;
+    const list = document.getElementById('list')
+    const wrapper = document.createElement('div')
+    data.forEach(actividad => {
+        wrapper.innerHTML = createCard(actividad);
+        // Es importante que sea firstElementChild ya que trata el elemento como HTML
+        list.appendChild(wrapper.firstElementChild);
+    })
 
     // =================================================================
     // Debo hacer las peticiones para obtener los datos de cada actividad y pintar las modales
@@ -36,24 +39,13 @@ function f_pintarActividades(data) {
 }
 
 function f_pintarModal(data) {
-
-    const templateScriptModal = document.getElementById('plantilla-modal').innerHTML;
-    const theTemplateModal = Handlebars.compile(templateScriptModal);
-    const theCompiledHtml = theTemplateModal(data);
-
-    document.querySelector('body').innerHTML += theCompiledHtml; // Pinto la modal en el body
-
-    // Creo la modal y la inicializo
-    let modal = new Modal(document.querySelector(`[id='modal${data.id}']`));
+    const theNewModal = createModal(data);
+    const wrapper = document.createElement('div')
+    wrapper.innerHTML = theNewModal;
+    document.querySelector('#modals').append(wrapper.firstElementChild);
+    const modal = new Modal(data.id);
     console.info('ID modal -->', data.id);
     modal.init();
-
-    MODALS.push(modal);
-
-    // let modal = document.querySelector(`[id='modal${data.id}']`);
-    // MODALS.push(new Modal(modal));
-
-    // MODALS.forEach(modal => {
-	// 	modal.init();
-	// });
+    modalList.add(modal);
+    console.info("TENGO --> ", modalList.length);
 }

@@ -7,7 +7,6 @@ let actividades;
 
 (function() {
     f_detectDevices();
-    f_crearHelpers();
 
     // ==================
     // PERFIL

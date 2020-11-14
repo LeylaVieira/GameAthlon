@@ -4,7 +4,9 @@
   "scriptsFiles": [
     "../sources/js/config/config.js",
     "../sources/js/modules/utilsClass.js",
-    "../sources/js/modules/modalClass.js",
+    "../sources/js/modules/Modal.js",
+    "../sources/js/modules/ModalList.js",
+    "../sources/js/modules/templates.js",
     "../sources/js/modules/devices.js",
     "../sources/js/modules/helpers.js",
     "../sources/js/modules/progress.js",

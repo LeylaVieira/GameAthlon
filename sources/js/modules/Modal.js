@@ -4,28 +4,28 @@ class Modal {
     }
 
     getId() {
-    	return this.id;
+		return this.id;
 	}
 
     getElement() {
-    	if (!this.element) {
+		if (!this.element) {
 			this.element = document.querySelector(`#modal${this.id}`);
 		}
-    	return this.element;
+		return this.element;
 	}
 
 	getTrigger() {
-    	if (!this.trigger) {
+		if (!this.trigger) {
 			this.trigger = document.querySelector(`[href='#modal${this.id}']`);
 		}
-    	return this.trigger;
+		return this.trigger;
 	}
 
 	getClose() {
-    	if (!this.close) {
+		if (!this.close) {
 			this.close = this.getElement().querySelector('.modal__btn');
 		}
-    	return this.close;
+		return this.close;
 	}
 
     init() {

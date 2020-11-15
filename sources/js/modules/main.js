@@ -2,9 +2,6 @@ const HTML = document.querySelector('html');
 const BODY = document.querySelector('body');
 let lastActiveFocusElement;
 
-let actividades;
-
-
 (function() {
     f_detectDevices();
 

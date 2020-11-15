@@ -1,14 +1,15 @@
 const createModal = ({
-     id,
-     type,
-     name,
-     start_date_local,
-     distance,
-     total_elevation_gain,
-     moving_time,
-     photos,
-     average_speed,
-     calories
+    id,
+    type,
+    name,
+    start_date_local,
+    distance,
+    total_elevation_gain,
+    moving_time,
+    max_speed,
+    photos,
+    average_speed,
+    calories
 }) => `<article class="modal" id="${formatModalActivityId(id)}" aria-hidden="true" role="dialog" tabindex="-1">
             <header class="modal__header">
                 <button class="btn btn--icon modal__btn">
@@ -35,36 +36,36 @@ const createModal = ({
                         </div>
                         <div class="activity__item">
                             <dt class="activity__term">Desnivel positivo</dt>
-                            <dd class="activity__desc">${total_elevation_gain} m</dd>
+                            <dd class="activity__desc">${formatElevation(total_elevation_gain)}</dd>
                         </div>
                         <div class="activity__item">
                             <dt class="activity__term">Tiempo en movimiento</dt>
                             <dd class="activity__desc">${formatMovingTime(moving_time)}</dd>
                         </div>
                         <div class="activity__item">
-                            <dt class="activity__term">Potencia promedio</dt>
-                            <dd class="activity__desc">64 W</dd>
+                            <dt class="activity__term">Velocidad máxima</dt>
+                            <dd class="activity__desc">${formatSpeed(max_speed)}</dd>
                         </div>
                         <div class="activity__item">
                             <dt class="activity__term">Velocidad promedio</dt>
-                            <dd class="activity__desc">${average_speed} km/h</dd>
+                            <dd class="activity__desc">${formatSpeed(average_speed)}</dd>
                         </div>
                         <div class="activity__item">
                             <dt class="activity__term">Calorías</dt>
-                            <dd class="activity__desc">${calories}</dd>
+                            <dd class="activity__desc">${formatCalories(calories)}</dd>
                         </div>
                         <div class="activity__item">
                             <dt class="activity__term">Experiencia ganada</dt>
-                            <dd class="activity__desc">150 exp</dd>
+                            <dd class="activity__desc">${calculateExperience(distance / 1000)} EXP</dd>
                         </div>
                         <div class="activity__item">
                             <dt class="activity__term">Sport coins ganados</dt>
-                            <dd class="activity__desc">30</dd>
+                            <dd class="activity__desc">${calculateCoins(distance / 1000)}</dd>
                         </div>
                     </dl>
                 </div><!--//activity__body-->
             </div><!--//modal__body-->
-        </article>`
+        </article>`;
 
 
 const createCard = ({ id, name, type, start_date_local, distance, }) => `<li class="list__item">
@@ -89,28 +90,28 @@ const createCard = ({ id, name, type, start_date_local, distance, }) => `<li cla
                             <svg class="card__item-icon"><use xlink:href="img/sprite.svg#icon-star" /></svg>
                             <span class="sr-only">Experiencia</span>
                         </dt>
-                        <dd class="card__desc">150 exp</dd>
+                        <dd class="card__desc">${calculateExperience(distance / 1000)} EXP</dd>
                     </div>
                     <div class="card__item">
                         <dt class="card__term">
                             <svg class="card__item-icon"><use xlink:href="img/sprite.svg#icon-coin" /></svg>
                             <span class="sr-only">Sport coins</span>
                         </dt>
-                        <dd class="card__desc">${formatCoins()}</dd>
+                        <dd class="card__desc">${calculateCoins(distance / 1000)}</dd>
                     </div>
                 </dl>
             </a>
-        </li>`
+        </li>`;
 
-const createProfile = ({ profile, percentage, level, firstname, lastname, coins }) => `
+const createProfile = ({ profile, percentage, level, fullname, coins }) => `
 <div class="perfil__progress">
-  <img class="perfil__image" src="${profile}" />
-  <div class="progress">
-      <svg class="progress__svg" width="72" height="72" data-percent="${formatPercentage(percentage)}">
-          <circle class="progress__circle" stroke-linecap="round" stroke="#6BA8A2" stroke-width="5" fill="transparent" r="33" cx="36" cy="36"/>
-      </svg>
-  </div>
+    <img class="perfil__image" src="${profile}" />
+    <div class="progress">
+        <svg class="progress__svg" width="72" height="72" data-percent="${percentage}">
+            <circle class="progress__circle" stroke-linecap="round" stroke="#6BA8A2" stroke-width="5" fill="transparent" r="33" cx="36" cy="36"/>
+        </svg>
+    </div>
 </div>
-<span class="perfil__level">${formatLevel(level)}</span>
-<h1 class="perfil__name">${firstname} ${lastname}</h1>
-<p class="perfil__coins">${formatCoins(coins)}</p>`
+<span class="perfil__level">${level}</span>
+<h1 class="perfil__name">${fullname}</h1>
+<p class="perfil__coins">${coins}</p>`;

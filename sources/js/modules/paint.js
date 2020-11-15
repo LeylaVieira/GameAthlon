@@ -13,6 +13,9 @@ function f_pintarStats(data) {
     // console.info('ATLETA --> ', atletaData);
     // console.info('STATS DATA --> ', data);
 
+    // Oculto loader
+    document.getElementById('loader').classList.add('no-visible');
+
     let distance = (data.all_ride_totals.distance + data.all_run_totals.distance + data.all_swim_totals.distance) / 1000;
     let experience = calculateExperience(distance);
     let level = calculateLevel(experience);

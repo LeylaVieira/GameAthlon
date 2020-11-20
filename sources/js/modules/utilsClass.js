@@ -40,7 +40,7 @@ class Utils {
 		BODY.classList.remove(className)
 	}
 
-	static updateButton() {
+	static updateButtons() {
 		previousButton.disabled = currentPageNumber === 1;
 	}
 

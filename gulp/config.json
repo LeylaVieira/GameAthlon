@@ -6,6 +6,7 @@
     "../sources/js/modules/utilsClass.js",
     "../sources/js/modules/Modal.js",
     "../sources/js/modules/ModalList.js",
+    "../sources/js/modules/ModalAlert.js",
     "../sources/js/modules/templates.js",
     "../sources/js/modules/devices.js",
     "../sources/js/modules/helpers.js",

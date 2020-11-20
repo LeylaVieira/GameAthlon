@@ -1,49 +1,29 @@
-class Modal {
+class ModalAlert {
     constructor(id) {
         this.id = id
     }
-
-    getId() {
-		return this.id;
-	}
-
     getElement() {
 		if (!this.element) {
-			this.element = document.querySelector(`#modal${this.id}`);
+			this.element = document.querySelector(this.id);
 		}
 		return this.element;
 	}
-
-	getTrigger() {
-		if (!this.trigger) {
-			this.trigger = document.querySelector(`[href='#modal${this.id}']`);
-		}
-		return this.trigger;
-	}
-
-	getClose() {
+    getClose() {
 		if (!this.close) {
 			this.close = this.getElement().querySelector('.modal__btn');
 		}
 		return this.close;
-	}
-
+    }
     init() {
 		this.registerListeners();
-	}
-
-	registerListeners() {
-		this.getTrigger().addEventListener('click', e => {
-			this.show();
-		})
-
+    }
+    registerListeners() {
 		this.getClose().addEventListener('click', e => {
-			this.hide();
+            this.hide();
 			Utils.removeBodyClass('is-visible-modal');
 			history.replaceState(null, null, '/');
 		})
     }
-
     show() {
 		const element = this.getElement();
 		element.classList.add('is-visible');
@@ -53,9 +33,8 @@ class Modal {
 		lastActiveFocusElement = document.activeElement;
 		element.focus();
 		Utils.addBodyClass('is-visible-modal');
-	}
-
-	hide() {
+    }
+    hide() {
 		// console.info("LASTACTIVE HIDE--> ", lastActiveFocusElement);
 		const element = this.getElement();
 		if(element.classList.contains('is-visible')) {

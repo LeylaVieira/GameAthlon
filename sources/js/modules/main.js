@@ -18,21 +18,19 @@ const nextButton = document.getElementById('nextButton');
     // ===================
     // LISTADO ACTIVIDADES
     // ===================
-    // const activitiesUrl = 'https://www.strava.com/api/v3/athlete/activities';
     let activitiesUrl = `https://www.strava.com/api/v3/athlete/activities?page=${currentPageNumber}&per_page=2`;
-    // https://www.strava.com/api/v3/athlete/activities?page=1&per_page=2
     f_getData(keys.actividades, activitiesUrl, f_pintarActividades);
-    Utils.updateButton();
+    Utils.updateButtons();
 
     previousButton.addEventListener('click', () => {
         currentPageNumber--;
-        Utils.updateButton();
+        Utils.updateButtons();
         activitiesUrl = `https://www.strava.com/api/v3/athlete/activities?page=${currentPageNumber}&per_page=2`;
         f_getData(keys.actividades, activitiesUrl, f_pintarActividades);
     });
     nextButton.addEventListener('click', () => {
         currentPageNumber++;
-        Utils.updateButton();
+        Utils.updateButtons();
         activitiesUrl = `https://www.strava.com/api/v3/athlete/activities?page=${currentPageNumber}&per_page=2`;
         f_getData(keys.actividades, activitiesUrl, f_pintarActividades);
     });

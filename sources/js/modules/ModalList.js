@@ -10,7 +10,7 @@ class ModalList{
 
     add(modal) {
         this.modals = [...this.modals, modal];
-        // Pregunta: ¿por qué hago esto?
+        // Pregunta: ¿por qué hago esto?, tengo que echarle bien un ojo porque si lo borro no se cierra la modal
         modal.getTrigger().addEventListener('click', (e) => {
             e.stopPropagation()
             if (this.activeModal) {

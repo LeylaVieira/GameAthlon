@@ -41,24 +41,29 @@ function f_pintarStats(data) {
 
 function f_pintarActividades(data) {
 
-    // Guardo los ids de las actividades
-    let actividadesId = data.map(({ id }) => id);
+    if(data.length === 0) {
+        console.info("NO HAY RESULTADOS..");
+    } else {
+        // Guardo los ids de las actividades
+        let actividadesId = data.map(({ id }) => id);
 
-    const list = document.getElementById('list')
-    const wrapper = document.createElement('div')
-    data.forEach(actividad => {
-        wrapper.innerHTML = createCard(actividad);
-        // Es importante que sea firstElementChild ya que trata el elemento como HTML
-        list.appendChild(wrapper.firstElementChild);
-    })
+        const list = document.getElementById('list');
+        list.innerHTML = ""; // Limpio la lista
+        const wrapper = document.createElement('div');
+        data.forEach(actividad => {
+            wrapper.innerHTML = createCard(actividad);
+            // Es importante que sea firstElementChild ya que trata el elemento como HTML
+            list.appendChild(wrapper.firstElementChild);
+        })
 
-    // =================================================================
-    // Debo hacer las peticiones para obtener los datos de cada actividad y pintar las modales
+        // =================================================================
+        // Debo hacer las peticiones para obtener los datos de cada actividad y pintar las modales
 
-    for (const id of actividadesId) {
-        let activityUrl = `https://www.strava.com/api/v3/activities/${id}`;
-        console.info('La URL que llamo --> ', activityUrl);
-        f_getData(keys.actividades, activityUrl, f_pintarModal);
+        for (const id of actividadesId) {
+            let activityUrl = `https://www.strava.com/api/v3/activities/${id}`;
+            console.info('La URL que llamo --> ', activityUrl);
+            f_getData(keys.actividades, activityUrl, f_pintarModal);
+        }
     }
 
 }

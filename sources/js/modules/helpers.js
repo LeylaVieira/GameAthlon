@@ -10,6 +10,23 @@ const formatCalories = (calories) => `${Math.round(calories)} kcal`;
 
 const formatElevation = (elevation) => `${Math.round(elevation)} m`;
 
+const f_obtenerDia = (num) => {
+    const dias = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+    return dias[num];
+}
+
+const f_convertirTiempo = (segundosActividad) => {
+    let segundos = (Math.round(segundosActividad % 0x3C)).toString();
+    let horas    = (Math.floor(segundosActividad / 0xE10)).toString();
+    let minutos  = (Math.floor(segundosActividad / 0x3C) % 0x3C).toString();
+
+    if(minutos < 10) {
+        minutos = `0${minutos}`;
+    }
+
+    return `${horas}:${minutos}:${segundos}`;
+}
+
 const formatDate = (start_date_local) => {
     let date = new Date(start_date_local);
     let today = new Date();

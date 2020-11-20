@@ -1,0 +1,24 @@
+.pagination {
+    display: inline-flex;
+    padding-top: 2rem;
+    width: 100%;
+    justify-content: center;
+
+    button {
+        display: block;
+        cursor: pointer;
+        background: transparent;
+        padding: .5rem;
+        margin: .2rem;
+        border: 1px solid $gray;
+        transition: all $medium $ease-in;
+
+        &:hover {
+            color: $breaker-day;
+            border-color: $breaker-day;
+        }
+        &:disabled {
+            pointer-events: none;
+        }
+    }
+}
